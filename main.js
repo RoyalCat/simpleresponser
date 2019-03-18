@@ -1,6 +1,6 @@
 // содежимое index.js
 const http = require('http')
-const port = 3000
+var port = process.env.PORT || 5000;
 var istimetowake = false
 const requestHandler = (request, response) => {
     if (request.url == "/wake")
@@ -21,6 +21,7 @@ const requestHandler = (request, response) => {
             response.end('0')
     }
 }
+
 const server = http.createServer(requestHandler)
 server.listen(port, (err) => {
     if (err) {
